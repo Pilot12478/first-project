@@ -1,3 +1,5 @@
+package practise1;
+
 public class MathOperations {
     static void main() {
         int sum = add(5, 6);
