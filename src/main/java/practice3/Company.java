@@ -15,27 +15,27 @@ String employeeName — имя сотрудника Реализуйте кон�
     final int employeeID;
     String employeeName;
 
-    Company(String employeeName, int employeeID) {
+    public Company(String employeeName, int employeeID) {
         this.employeeName = employeeName;
         this.employeeID = employeeID;
     }
 
-    static void printCompanyName() {
+    public static void printCompanyName() {
         System.out.println("Название компании: " + companyName);
     }
 
-    String getEmployeeName() {
+    public String getEmployeeName() {
         return this.employeeName;
     }
 
-    void setEmployeeName(String employeeName) {
+    public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
 
-    void printInfo() {
-        System.out.println("Id сотрудника: " + this.employeeID + "\n" +
-                "Имя сотрудника: " + this.employeeName + "\n" +
-                "Название компании: " + companyName + "\n");
+    public void printInfo() {
+        System.out.println("Id сотрудника: " + this.employeeID + "; " +
+                "Имя сотрудника: " + this.employeeName + "; " +
+                "Название компании: " + companyName + "; ");
     }
 
     static void main() {

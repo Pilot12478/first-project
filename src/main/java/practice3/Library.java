@@ -14,32 +14,32 @@ public String category Реализуйте геттеры и сеттеры д�
     int year;
     public String category;
 
-    String getBookTitle() {
+    public String getBookTitle() {
         return this.bookTitle;
     }
 
-    String getAuthor() {
+    public String getAuthor() {
         return this.author;
     }
 
-    int getYear() {
+    public int getYear() {
         return this.year;
     }
 
-    String getCategory() {
+    public String getCategory() {
         return this.category;
     }
 
-    void setBookTitle(String bookTitle){
+    public void setBookTitle(String bookTitle){
         this.bookTitle = bookTitle;
     }
-    void setAuthor(String author){
+    public void setAuthor(String author){
         this.author = author;
     }
-    void setYear(int year){
+    public void setYear(int year){
         this.year = year;
     }
-    void setCategory(String category){
+    public void setCategory(String category){
         this.category = category;
     }
 }

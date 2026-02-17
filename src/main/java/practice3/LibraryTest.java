@@ -6,7 +6,11 @@ public class LibraryTest {
         library.category = "+21";
         library.year = 12;
         library.author = "Тест";
-        library.setBookTitle("Война и мир");
+        library.getBookTitle();
+        library.getAuthor();
+        library.getCategory();
+        library.getYear();
+
         /*
         поскольку поле bookTitle имеет модификатор доступа Private,
         к нему можно обращаться только внутри класса

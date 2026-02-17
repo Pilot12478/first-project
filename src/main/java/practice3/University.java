@@ -14,23 +14,23 @@ String studentName Реализуйте конструктор для studentID 
     final int studentID;
     String studentName;
 
-    University(int studentID, String studentName) {
+    public University(int studentID, String studentName) {
         this.studentName = studentName;
         this.studentID = studentID;
     }
 
-    static void changeUniversityName(String newName) {
+    public static void changeUniversityName(String newName) {
         universityName = newName;
     }
 
-    String getStudentName() {
+    public String getStudentName() {
         return this.studentName;
     }
 
-    void printStudentInfo() {
-        System.out.println("ID: " + this.studentID + "\n" +
-                "Имя студента: " + this.studentName + "\n" +
-                "Наименование университета: " + universityName + "\n");
+    public void printStudentInfo() {
+        System.out.println("ID: " + this.studentID + ". " +
+                "Имя студента: " + this.studentName + ". " +
+                "Наименование университета: " + universityName + ". ");
     }
 
     static void main() {

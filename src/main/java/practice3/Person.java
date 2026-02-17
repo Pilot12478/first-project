@@ -13,36 +13,36 @@ private final String ssn — номер социального страхова�
     private String lastName;
     private final String ssn;
 
-    Person(String firstName, String lastName, String ssn) {
+    public Person(String firstName, String lastName, String ssn) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.ssn = ssn;
     }
 
-    String getFirstName() {
+    public String getFirstName() {
         return this.firstName;
     }
 
-    String getLastName() {
+    public String getLastName() {
         return this.lastName;
     }
 
-    String getSsn() {
+    public String getSsn() {
         return this.ssn;
     }
 
-    void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    void printPersonInfo() {
-        System.out.println("Имя: " + this.firstName + "\n" +
-                "Фамилия: " + this.lastName + "\n" +
-                "SSN: " + this.ssn + "\n");
+    public void printPersonInfo() {
+        System.out.println("Имя: " + this.firstName + " " +
+                "Фамилия: " + this.lastName + " " +
+                "SSN: " + this.ssn + " ");
     }
 
     static void main() {
