@@ -219,7 +219,250 @@ public class Tasks {
 
     }
 
-    static void main() {
-        Tasks.switchTask5();
+    //Вывод чисел от 1 до 100, делящихся на 3
+    public static void forTask1() {
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0) {
+                System.out.println(i);
+            }
+
+        }
     }
+
+    //Сумма чисел от 1 до n
+    public static void forTask2() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число: ");
+        int num = scanner.nextInt();
+        int sum = 0;
+        for (int i = 1; i <= num; i++) {
+            sum = sum + i;
+            System.out.println(sum);
+        }
+        System.out.println(sum);
+    }
+
+    //Таблица умножения для числа
+    public static void forTask3() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число: ");
+        int num = scanner.nextInt();
+        for (int i = 0; i <= 10; i++) {
+            int res = i * num;
+            System.out.println(i + "*" + num + "=" + res);
+        }
+    }
+
+    //Проверка на простое число
+    public static void forTask4() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число: ");
+        int num = scanner.nextInt();
+        boolean isPrime = true;
+        for (int i = 2; i <= num - 1; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+            }
+        }
+        if (isPrime == true) {
+            System.out.println("Число простое");
+        } else System.out.println("Число непростое");
+
+    }
+
+    // Вывод чисел от 1 до 10
+    public static void forTask5() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+
+    }
+
+    //Вычисление факториала с помощью while
+    public static void whileTask1() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число:");
+        int num = scanner.nextInt();
+        int result = 1;
+        int i = 1;
+        while (i <= num) {
+            result = result * i;
+            i++;
+
+        }
+        System.out.println("Факториал числа " + num + " = " + result);
+    }
+
+    //Вывод всех чётных чисел до заданного
+    public static void whileTask2() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число");
+        int num = scanner.nextInt();
+        int i = 1;
+        while (i <= num) {
+            if (i % 2 == 0) {
+                System.out.println(i);
+            }
+            i++;
+        }
+    }
+
+    //Обратный отсчёт от введённого числа до 1
+    public static void whileTask3() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число");
+        int num = scanner.nextInt();
+        int i = 2;
+        while (num > 0) {
+            System.out.println(num);
+            num--;
+            i++;
+        }
+    }
+
+    //Запрос положительного числа
+    public static void doWhileTask1() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите положительно число");
+        int num = scanner.nextInt();
+        if (num >= 0) {
+
+        } else if (num < 0) {
+            do {
+                System.out.println("Введите положительное число");
+                num = scanner.nextInt();
+            } while (num < 0);
+        }
+    }
+
+    //проверка пароля
+    public static void doWhileTask2() {
+        String password = "DerParol";
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите пароль:");
+        String userPass = scanner.nextLine();
+        if (userPass.equals(password)) {
+            System.out.println("Вы успешно вошли в систему");
+        } else if (!userPass.equals(password)) {
+            do {
+                System.out.println("Пароль не верный" + "\n");
+                System.out.println("Введите пароль");
+                userPass = scanner.nextLine();
+            } while (!userPass.equals(password));
+        }
+    }
+
+    // Вывод чисел от 1 до 10 с использованием do-while
+    public static void doWhileTask3() {
+        int i = 1;
+        do {
+            System.out.println(i);
+            i++;
+        } while (i <= 10);
+    }
+
+    //Завершение программы по команде "exit"
+    public static void doWhileTask4() {
+        String command = "exit";
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите команду");
+        String userCommand = scanner.nextLine();
+        int i = 0;
+        do {
+            System.out.println("Введите команду");
+            userCommand = scanner.nextLine();
+            i++;
+        } while (!userCommand.equals(command));
+
+
+    }
+
+    //Подсчёт количества цифр в числе
+    public static void doWhileTask5() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число");
+        int num = scanner.nextInt();
+        int count = 0;
+        if (num == 0) {
+            System.out.println("Количество цифр = 1");
+        } else {
+            do {
+                num = num / 10;
+                count++;
+            } while (num > 0);
+            System.out.println("Количество цифр = " + count);
+        }
+    }
+
+    //Сумма чисел до первого отрицательного (использовать break)
+    public static void breakTask1() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число: ");
+        int num = scanner.nextInt();
+        int i = 0;
+        int sum = 0;
+        while (true) {
+            sum = sum + num;
+            i++;
+            System.out.println("Сумма чисел = " + sum);
+            System.out.println("Введите число: ");
+            num = scanner.nextInt();
+            if (num < 0) {
+                break;
+            }
+        }
+    }
+
+    //Пропуск чисел, делящихся на 3 (использовать continue)
+    public static void breakTask2() {
+        for (int i = 1; i <= 20; i++) {
+            if (i % 3 == 0) {
+                continue;
+            } else System.out.println(i);
+        }
+    }
+
+    //Вывод только положительных чисел (использовать continue)
+    public static void breakTask3() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число: ");
+        int num = scanner.nextInt();
+        if (num > 0) {
+            System.out.println(num);
+        }
+        int i = 0;
+        while (true) {
+            System.out.println("Введите число: ");
+            num = scanner.nextInt();
+            if (num < 0) {
+                continue;
+            } else System.out.println(i);
+            i++;
+        }
+    }
+    //Ввод строк до команды "stop" (использовать break)
+    public static void breakTask4(){
+        String command = "stop";
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите команду");
+        String comm = scanner.nextLine();
+        int i =0;
+        while (true){
+            System.out.println("Введите команду: ");
+            comm = scanner.nextLine();
+            if(comm.equals(command)){
+                break;
+            }
+            i++;
+        }
+
+    }
+
+    static void main() {
+        Tasks.breakTask4();
+
+    }
+
 }
+
+
