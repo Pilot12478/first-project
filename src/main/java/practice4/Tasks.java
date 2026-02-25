@@ -381,11 +381,9 @@ public class Tasks {
     public static void breakTask1(Scanner scanner) {
         System.out.println("Введите число: ");
         int num = scanner.nextInt();
-        int i = 0;
         int sum = 0;
         while (true) {
             sum = sum + num;
-            i++;
             System.out.println("Сумма чисел = " + sum);
             System.out.println("Введите число: ");
             num = scanner.nextInt();
@@ -435,7 +433,7 @@ public class Tasks {
 
     static void main() {
         Scanner scanner = new Scanner(System.in);
-        ifElseTask2(scanner);
+        breakTask1(scanner);
 
     }
 
