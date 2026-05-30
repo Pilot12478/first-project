@@ -8,17 +8,13 @@ public class MultithreadingTasks {
     1. Задача: создание одного потока
 Условие задачи: Напишите программу, в которой создается отдельный поток,
 выводящий сообщение "Привет из потока!" 5 раз с паузой в 1 секунду между сообщениями.
-2. Задача: создание двух потоков
-Условие задачи: Создайте два потока.
- Один поток должен печатать "A", второй — "B", каждый по 5 раз с небольшой задержкой.
-
      */
-    public static void printMessageFromThread(String message) {
+    public static void printMessageFromThread() {
         Thread thread = new Thread(() -> {
             try {
                 int i = 0;
-                while (i < 5 || Thread.currentThread().isInterrupted()) {
-                    System.out.println(message);
+                while (i < 5) {
+                    System.out.println("Привет из потока!");
                     i++;
                     TimeUnit.SECONDS.sleep(1);
                 }
@@ -31,19 +27,43 @@ public class MultithreadingTasks {
     }
 
     /*
+    2. Задача: создание двух потоков
+  Условие задачи: Создайте два потока.
+  Один поток должен печатать "A", второй — "B", каждый по 5 раз с небольшой задержкой.
+     */
+    public static void printMessageFromThread(String message){
+        Thread thread = new Thread(() -> {
+            try {
+                int i = 0;
+                while (i < 5) {
+                    System.out.println(message);
+                    i++;
+                    TimeUnit.SECONDS.sleep(1);
+                }
+            } catch (InterruptedException interruptedException) {
+                Thread.currentThread().interrupt();
+            }
+
+        });
+        thread.start();
+
+    }
+
+
+    /*
     3. Задача: использование volatile
 Условие задачи: Создайте поток, который бесконечно увеличивает счетчик.
  В основном потоке через 2 секунды установите флаг stop = true, чтобы остановить поток.
      */
     private static class VolotileCounter implements Runnable {
-        private volatile int counter = 0;
-        private boolean stop;
+        private int counter = 0;
+        private volatile boolean stop;
 
         public int getCounter() {
             return counter;
         }
 
-        public  void increase() throws InterruptedException {
+        public void increase() throws InterruptedException {
             while (!stop) {
                 counter++;
                 Thread.sleep(1000);
@@ -65,12 +85,15 @@ public class MultithreadingTasks {
 
         }
     }
-    public static class SynchronizedCounter implements Runnable{
-        private int counter =0;
-        public synchronized void increase(){
-            IntStream.range(0,1000).forEach(i->counter++);
+
+    public static class SynchronizedCounter implements Runnable {
+        private int counter = 0;
+
+        public synchronized void increase() {
+            IntStream.range(0, 1000).forEach(i -> counter++);
         }
-        public int getCounter(){
+
+        public int getCounter() {
             return counter;
         }
 
@@ -82,9 +105,9 @@ public class MultithreadingTasks {
 
 
     static void main() throws InterruptedException {
-        printMessageFromThread("Привет из потока!");
+        printMessageFromThread();
         printMessageFromThread("A");
-        printMessageFromThread("B");
+        printMessageFromThread("Б");
 
 
         VolotileCounter volotileClass = new VolotileCounter();
@@ -96,8 +119,11 @@ public class MultithreadingTasks {
 
         SynchronizedCounter synchronizedCounter = new SynchronizedCounter();
         Thread thread1 = new Thread(synchronizedCounter);
+        Thread thread2 = new Thread(synchronizedCounter);
         thread1.start();
+        thread2.start();
         thread1.join();
+        thread2.join();
         System.out.println(synchronizedCounter.getCounter());
 
     }
