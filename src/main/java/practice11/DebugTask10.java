@@ -11,6 +11,7 @@ public class DebugTask10 {
                 iterator.remove(); // безопасное удаление
             }
         }
+        System.out.println(names);
     }
 }
 
