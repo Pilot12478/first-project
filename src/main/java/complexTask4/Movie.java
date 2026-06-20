@@ -1,8 +1,8 @@
 package complexTask4;
 
 public class Movie {
-    private final String title;
-    private final String shortDescription;
+    private  String title;
+    private String shortDescription;
 
     public Movie(String title, String shortDescription) {
         this.title = title;
