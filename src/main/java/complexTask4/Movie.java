@@ -1,5 +1,7 @@
 package complexTask4;
 
+import java.util.Objects;
+
 public class Movie {
     private  String title;
     private String shortDescription;
@@ -22,5 +24,17 @@ public class Movie {
         return "Movie{" +
                 "title='" + title + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return Objects.equals(title, movie.title) && Objects.equals(shortDescription, movie.shortDescription);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, shortDescription);
     }
 }

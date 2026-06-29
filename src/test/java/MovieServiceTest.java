@@ -8,6 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -15,8 +16,7 @@ import java.util.stream.Stream;
 import static complexTask4.MovieService.MAX_VALUE;
 import static complexTask4.MovieService.MIN_VALUE;
 import static complexTask4.UnitTestHelpersMethods.avg;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MovieServiceTest {
     MovieService movieService;
@@ -54,9 +54,10 @@ public class MovieServiceTest {
         movieService.addGrade(loveAndPigeons, userGrade6);
 
         expectedAvgMap = new LinkedHashMap<>();
-        expectedAvgMap.put(greenMile, avg(userGrade1.getGrade(), userGrade2.getGrade(), userGrade5.getGrade()));
-        expectedAvgMap.put(loveAndPigeons, avg(userGrade4.getGrade(), userGrade3.getGrade(), userGrade6.getGrade()));
         expectedAvgMap.put(forrestGump, avg(userGrade6.getGrade(), userGrade3.getGrade(), userGrade1.getGrade()));
+        expectedAvgMap.put(loveAndPigeons, avg(userGrade4.getGrade(), userGrade3.getGrade(), userGrade6.getGrade()));
+        expectedAvgMap.put(greenMile, avg(userGrade1.getGrade(), userGrade2.getGrade(), userGrade5.getGrade()));
+
     }
 
     public static Stream<Arguments> testDataForAddFailedTest() {
@@ -70,7 +71,8 @@ public class MovieServiceTest {
     @DisplayName("Проверка успешного добавления оценок, расчета среднего значения рейтинга для каждого фильма и сортировки")
     public void addAvgSortingTest() {
         prepareTestData();
-        assertEquals(expectedAvgMap, movieService.sorting(movieService.getAvgGradeByAllMovies()));
+        Map<Movie, Double> actual = movieService.sorting(movieService.getAvgGradeByAllMovies());
+        assertArrayEquals(expectedAvgMap.entrySet().toArray(),actual.entrySet().toArray());
     }
 
     @ParameterizedTest(name = "{0}:{1}")

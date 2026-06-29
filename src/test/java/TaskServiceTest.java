@@ -42,11 +42,11 @@ public class TaskServiceTest {
         expectedListAfterFilteringByPriority.add(task5);
 
         expectedListAfterSortingByDate = new CopyOnWriteArrayList<>();
-        expectedListAfterSortingByDate.add(task5);
-        expectedListAfterSortingByDate.add(task1);
-        expectedListAfterSortingByDate.add(task4);
-        expectedListAfterSortingByDate.add(task2);
         expectedListAfterSortingByDate.add(task3);
+        expectedListAfterSortingByDate.add(task2);
+        expectedListAfterSortingByDate.add(task4);
+        expectedListAfterSortingByDate.add(task1);
+        expectedListAfterSortingByDate.add(task5);
     }
 
 
@@ -117,7 +117,7 @@ public class TaskServiceTest {
         assertIterableEquals(expectedListAfterFilteringByPriority, taskService.getTaskByPriority("se2"));
     }
     @Test
-    @DisplayName("Проверка усепшной сортировки по дате")
+    @DisplayName("Проверка успешной сортировки по дате")
     public void sortingByDateSuccessTest(){
         testDataForFilteringAndSorting();
         assertIterableEquals(expectedListAfterSortingByDate, taskService.sortingByDate());

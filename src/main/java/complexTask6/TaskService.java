@@ -14,7 +14,7 @@ public class TaskService<T> {
         listOfTasks = new CopyOnWriteArrayList<>();
     }
 
-    public void addTask(Task<T> task) {
+    public synchronized void addTask(Task<T> task) {
         if (task == null) {
             throw new IllegalArgumentException("Task can't be null");
         }
@@ -26,7 +26,7 @@ public class TaskService<T> {
         listOfTasks.add(task);
     }
 
-    public boolean removeTask(T id) {
+    public synchronized boolean removeTask(T id) {
         if (id == null) {
             throw new IllegalArgumentException("id can't be null");
         }
@@ -65,7 +65,7 @@ public class TaskService<T> {
     public List<Task<T>> sortingByDate() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-        return listOfTasks.stream().sorted(Comparator.comparing((Task<T> task) -> LocalDate.parse(task.getDate(), formatter)).reversed()).toList();
+        return listOfTasks.stream().sorted(Comparator.comparing((Task<T> task) -> LocalDate.parse(task.getDate(), formatter))).toList();
     }
     public List<Task<T>> getList(){
         return List.copyOf(listOfTasks);

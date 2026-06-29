@@ -98,7 +98,8 @@ public class InventoryServiceTest {
     @DisplayName("Проверка получения продуктов по категории")
     public void getProductByCategorySuccessTest() {
         prepareTestData();
-        assertEquals(expMapCategoryFiltered,inventoryService.getProductByCategory("fruits"));
+        String expectedProductCategory = "fruits";
+        assertEquals(expectedProductCategory,inventoryService.getProductByCategory("fruits").getCategory());
     }
     @Test
     @DisplayName("Проверка получения продуктов по цене")

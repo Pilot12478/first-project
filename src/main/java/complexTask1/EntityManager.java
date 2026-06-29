@@ -14,8 +14,8 @@ public class EntityManager<T extends Entity> {
         entities.add(entity);
     }
 
-    public void remove(T entity) {
-        entities.remove(entity);
+    public boolean remove(T entity) {
+        return entities.remove(entity);
     }
 
     public List<T> getAll() {

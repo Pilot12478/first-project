@@ -3,7 +3,6 @@ package complexTask5;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -30,24 +29,19 @@ public class InventoryService {
                 map.put(category, products);
             }
             products.add(product);
-        }
+        } else throw new IllegalArgumentException("Склад закрыт");
 
     }
 
 
-    public Map<String, List<Product>> getProductByCategory(String category) {
+    public Product getProductByCategory(String category) {
         if (category == null || category.isEmpty()) {
             throw new IllegalArgumentException("Переданы некорректные значения");
         }
         if (map.get(category) == null) {
             throw new OutOfStockException("в указанной категории нет товаров");
         }
-        return map.entrySet().stream().filter(c -> c.getKey().equals(category)).collect(
-                Collectors.toMap(
-                        Map.Entry::getKey,
-                        Map.Entry::getValue
-                )
-        );
+        return map.get(category).removeFirst();
     }
 
     public Map<String, List<Product>> getProductsByPrice(double price) {

@@ -39,7 +39,7 @@ public class MovieService {
     }
 
     public Map<Movie, Double> sorting(Map<Movie, Double> map) {
-        return map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(
+        return map.entrySet().stream().sorted(Map.Entry.<Movie, Double>comparingByValue().reversed()).collect(Collectors.toMap(
                 entry -> entry.getKey(),
                 entry -> entry.getValue(),
                 (e1, e2) -> e1,
