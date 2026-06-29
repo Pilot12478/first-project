@@ -196,5 +196,6 @@ public class CollectionPractice {
 
     static void main() {
         CollectionPractice.arrayDeque1();
+
     }
 }
