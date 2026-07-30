@@ -19,7 +19,7 @@ public class GradeService<T extends Number> {
     }
 
     public synchronized double avgGrade(String subject) {
-            return gradeList.stream().filter(studentGrade -> studentGrade.getSubject().equals(subject)).mapToDouble(studentGrade -> studentGrade.getGrade().doubleValue()).average().orElseThrow();
+        return gradeList.stream().filter(studentGrade -> studentGrade.getSubject().equals(subject)).mapToDouble(studentGrade -> studentGrade.getGrade().doubleValue()).average().orElseThrow();
 
     }
 
