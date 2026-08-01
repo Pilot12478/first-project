@@ -1,7 +1,7 @@
 package practiceProgrammingPrinciples.DIP;
 
 public class NotificationService {
-    NotificationSender notificationSender;
+    private final NotificationSender notificationSender;
 
     public NotificationService(NotificationSender notificationSender) {
         this.notificationSender = notificationSender;

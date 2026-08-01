@@ -1,7 +1,7 @@
 package practiceProgrammingPrinciples.OCP;
 
 public class PaymentProcessor {
-    PaymentSystem paymentSystem;
+    private final PaymentSystem paymentSystem;
 
     public PaymentProcessor(PaymentSystem paymentSystem) {
         this.paymentSystem = paymentSystem;
