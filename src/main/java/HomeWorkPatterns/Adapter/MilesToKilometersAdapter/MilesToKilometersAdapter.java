@@ -1,7 +1,7 @@
 package HomeWorkPatterns.Adapter.MilesToKilometersAdapter;
 
 public class MilesToKilometersAdapter implements Distance {
-    private Miles miles;
+    private final Miles miles;
     private static final double MILE_COEFFICIENT = 1.61;
 
     public MilesToKilometersAdapter(Miles miles) {

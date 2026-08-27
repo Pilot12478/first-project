@@ -2,7 +2,7 @@ package HomeWorkPatterns.Singleton;
 
 public class Main {
     static void main() {
-        ConfigurationManager configurationManager = ConfigurationManager.getConfigurationManager();
+        ConfigurationManager configurationManager = ConfigurationManager.getInstance();
         System.out.println(configurationManager.getDataBaseUrl());   // вернулся дефолтный URL
         configurationManager.setConfiguration("someUrl","someName","somePass","somePath","someLogLevel","someLogFilePath");
         System.out.println(configurationManager.getDataBaseUrl());   // вернулся новый URL

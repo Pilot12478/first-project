@@ -1,21 +1,17 @@
 package HomeWorkPatterns.Adapter.DocumentAdapter;
 
 public class DocumentAdapter implements DocumentProcessor {
-    private final DOCProcessor docProcessor;
+    private final PDFProcessor  pdfProcessor;
     public DocumentAdapter(){
-         docProcessor = new DOCProcessor();
+        pdfProcessor = new PDFProcessor();
     }
 
 
     @Override
     public void process(String doc) {
-        convert(doc);
-        docProcessor.process(doc);
+        pdfProcessor.processPdf(doc);
     }
 
-    public void convert(String filePdf){
-        System.out.println("Какая-то логика конвертации pdf в doc");
-    }
 
     static void main() {
         String filePdf = "file.pdf";

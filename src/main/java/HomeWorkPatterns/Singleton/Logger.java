@@ -1,7 +1,7 @@
 package HomeWorkPatterns.Singleton;
 
 public class Logger {
-    private static Logger logger;
+    private static Logger instance;
     private String logFile;
 
     private Logger(){
@@ -9,10 +9,10 @@ public class Logger {
     }
 
     public static Logger getLogger() {
-        if (logger == null) {
-            logger = new Logger();
+        if (instance == null) {
+            instance = new Logger();
         }
-        return logger;
+        return instance;
     }
 
     public void info(String log){

@@ -8,7 +8,7 @@ public class ConfigurationManager {
     private String logLevel;
     private String logFilePath;
 
-    private static ConfigurationManager configurationManager;
+    private static ConfigurationManager instance;
 
     private ConfigurationManager() {
         dataBaseUrl = "defaultDBurl";
@@ -20,11 +20,11 @@ public class ConfigurationManager {
 
     }
 
-    public static ConfigurationManager getConfigurationManager() {
-        if (configurationManager == null) {
-            configurationManager = new ConfigurationManager();
+    public static ConfigurationManager getInstance() {
+        if (instance  == null) {
+            instance  = new ConfigurationManager();
         }
-        return configurationManager;
+        return instance ;
     }
 
     public void setConfiguration(String dataBaseUrl,
